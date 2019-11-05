@@ -17,17 +17,17 @@ http://codereview.stackexchange.com/questions/20718/strategy-design-pattern-with
 
 # update functions
 def _linear( self, inputs ):
-    self.state = (1 - self.tau)*self.state + self.tau*inputs.clip(0) + np.random.normal( self.rand_mean, self.rand_std, 1 )
+    self.state = (1 - self.tau)*self.state + self.tau*inputs.clip(0) #+ np.random.normal( self.rand_mean, self.rand_std, 1 )
 
 def _sigmoid( self, inputs ):
-    self.state = (1 - self.tau)*self.state + self.tau*np.tanh( inputs ) + np.random.normal( self.rand_mean, self.rand_std, 1 )
+    self.state = (1 - self.tau)*self.state + self.tau*np.tanh( inputs ) #+ np.random.normal( self.rand_mean, self.rand_std, 1 )
 
 def _cubic( self, inputs, a=.038, b= -.36, c=1., d=-.02 ):
     # d + cr + br^2 + ar^3
-    self.state = (1 - self.tau)*( d + c*self.state + b*self.state**2 + a*self.state**3 ) + self.tau*inputs.clip(0) + np.random.normal( self.rand_mean, self.rand_std, 1 )
+    self.state = (1 - self.tau)*( d + c*self.state + b*self.state**2 + a*self.state**3 ) + self.tau*inputs.clip(0) #+ np.random.normal( self.rand_mean, self.rand_std, 1 )
 
 def _load( self, inputs ):
-    self.state = inputs + np.random.normal( self.rand_mean, self.rand_std, 1 )
+    self.state = inputs #+ np.random.normal( self.rand_mean, self.rand_std, 1 )
 
 
 
